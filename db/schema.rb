@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160811091025) do
     t.integer  "cocktail_id"
     t.integer  "ingredient_id"
     t.text     "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["cocktail_id"], name: "index_doses_on_cocktail_id", using: :btree
     t.index ["ingredient_id"], name: "index_doses_on_ingredient_id", using: :btree
   end
@@ -37,6 +37,6 @@ ActiveRecord::Schema.define(version: 20160811091025) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "doses", "cocktails", column: "cocktail_id"
-  add_foreign_key "doses", "ingredients", column: "ingredient_id"
+  add_foreign_key "doses", "cocktails"
+  add_foreign_key "doses", "ingredients"
 end
