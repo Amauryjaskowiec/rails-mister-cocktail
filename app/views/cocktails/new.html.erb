@@ -1,11 +1,3 @@
+<h2>Add a cocktail</h2>
 
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :name %>
-  <%= f.simple_fields_for :dose do |d| %>
-    <%= d.input :ingredient_id, collection: Ingredient.all %>
-    <%= d.input :description %>
-  <% end %>
-  <%= f.button :submit, {class: "btn btn-danger"} %>
-<% end %>
+<%= render "form", cocktail: @cocktail %>

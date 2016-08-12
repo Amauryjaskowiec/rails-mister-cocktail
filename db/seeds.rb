@@ -5,31 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#
-alcohols = %w(gin vodka tequila rum jager)
-softs = %w(limo coca orange monster perrier)
-toppings = %w(minth strawberry coconut cacao sugar zest tabasco)
 
-alcohols.each do |ingredient|
-  Ingredient.create(name: ingredient)
-end
-softs.each do |ingredient|
-  Ingredient.create(name: ingredient)
-end
-toppings.each do |ingredient|
-  Ingredient.create(name: ingredient)
-end
+Ingredient.destroy_all
+Cocktail.destroy_all
 
-doses = %w( 2 3 4 5 6 7)
+Ingredient.create(name: "Lime")
+Ingredient.create(name: "Mint leaves")
+Ingredient.create(name: "Ice cubes")
+Ingredient.create(name: "Syrup sugar")
+Ingredient.create(name: "Angustura")
+Ingredient.create(name: "Rhum Havana Club")
+Ingredient.create(name: "Sparkling water")
 
-cocktails = %w(mojito sunrise pinacolada touchdown margarita)
-
-cocktails.each do |cocktail|
-  Cocktail.create(name: cocktail)
-end
-
-Cocktail.all.each do |c|
-  Dose.create(description: doses.sample.first, cocktail: c, ingredient: Ingredient.where(name: alcohols.sample).first)
-  Dose.create(description: doses.sample.first, cocktail: c, ingredient: Ingredient.where(name: softs.sample).first)
-  Dose.create(description: doses.sample.first, cocktail: c, ingredient: Ingredient.where(name: toppings.sample).first)
-end
